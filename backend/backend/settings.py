@@ -123,12 +123,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/images/' #Url for veiwing media fiels
 
 # Creattimg static file directory to show the image file path upload
 
 STATICFILES_DIRS =[
     BASE_DIR  / 'static'
 ]
+
+MEDIA_ROOT = 'static/images' # upload external media content to this folder
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

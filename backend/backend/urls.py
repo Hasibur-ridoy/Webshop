@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings             # This package is necessary for media upload
+from django.conf.urls.static import static   # This package is necessary for media upload
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('base.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, docment_root = settings.MEDIA_ROOT) # setting the url and the showing the path to look for the folder to view the files.
