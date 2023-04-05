@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    "corsheaders", # django cors for allowing access thorugh external urls or api access
     'base.apps.BaseConfig', # Added created app to the django list to find it self
     'rest_framework', # Installed and added rest framework
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware", # django cors, has to put at the top of middleware
+
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,7 +124,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Creattimg static file directory to show the image file path upload
+
+STATICFILES_DIRS =[
+    BASE_DIR  / 'static'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True #Allowing cors to accepet all urls request
+
